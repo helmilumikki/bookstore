@@ -1,5 +1,6 @@
 package hh.sof03.bookstore.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,17 +13,18 @@ public class Book {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String title, author, isbn;
-	private int release_year;
+	@Column(name="publishing_year")
+	private int year;
 	private double price;
 	
 	public Book() {}
-	
-	public Book(String title, String author, int release_year, String isbn, double price) {
+
+	public Book(String title, String author, String isbn, int year, double price) {
 		super();
 		this.title = title;
 		this.author = author;
-		this.release_year = release_year;
 		this.isbn = isbn;
+		this.year = year;
 		this.price = price;
 	}
 
@@ -58,12 +60,12 @@ public class Book {
 		this.isbn = isbn;
 	}
 
-	public int getRelease_year() {
-		return release_year;
+	public int getYear() {
+		return year;
 	}
 
-	public void setRelease_year(int release_year) {
-		this.release_year = release_year;
+	public void setYear(int year) {
+		this.year = year;
 	}
 
 	public double getPrice() {
@@ -73,6 +75,8 @@ public class Book {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	
+	
 	
 	
 	

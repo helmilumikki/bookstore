@@ -1,29 +1,37 @@
 package hh.sof03.bookstore.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Book {
 	
-	private String title;
-	private String author;
-	private int year;
-	private String isbn;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	private String title, author, isbn;
+	private int release_year;
 	private double price;
 	
-	public Book(String title, String author, int year, String isbn, double price) {
+	public Book() {}
+	
+	public Book(String title, String author, int release_year, String isbn, double price) {
 		super();
 		this.title = title;
 		this.author = author;
-		this.year = year;
+		this.release_year = release_year;
 		this.isbn = isbn;
 		this.price = price;
 	}
-	
-	public Book() {
-		super();
-		this.title = "";
-		this.author = "";
-		this.year = 0;
-		this.isbn = "";
-		this.price = 0;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getTitle() {
@@ -42,20 +50,20 @@ public class Book {
 		this.author = author;
 	}
 
-	public int getYear() {
-		return year;
-	}
-
-	public void setYear(int year) {
-		this.year = year;
-	}
-
 	public String getIsbn() {
 		return isbn;
 	}
 
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
+	}
+
+	public int getRelease_year() {
+		return release_year;
+	}
+
+	public void setRelease_year(int release_year) {
+		this.release_year = release_year;
 	}
 
 	public double getPrice() {
@@ -65,12 +73,7 @@ public class Book {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-
-	@Override
-	public String toString() {
-		return "Book [title=" + title + ", author=" + author + ", year=" + year + ", isbn=" + isbn + ", price=" + price
-				+ "]";
-	}
+	
 	
 	
 }

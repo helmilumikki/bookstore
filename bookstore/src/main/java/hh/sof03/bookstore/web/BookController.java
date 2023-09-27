@@ -19,7 +19,7 @@ public class BookController {
 
 	@RequestMapping(value="/index", method=RequestMethod.GET)
 	public String getWelcomePage() {
-		return "bookstore.html";
+		return "bookstore";
 	}
 	
 	@RequestMapping("/booklist")

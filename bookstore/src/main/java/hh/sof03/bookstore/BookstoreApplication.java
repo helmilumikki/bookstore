@@ -21,12 +21,16 @@ public class BookstoreApplication {
 	public CommandLineRunner demo(BookRepository bookRepo, CategoryRepository catRepo) {
 	return (args) -> {
 		
-		catRepo.save(new Category("fantasy"));
-		catRepo.save(new Category("scifi"));
-		catRepo.save(new Category("thriller"));
+		Category c1 = new Category("fantasy"); 
+		Category c2 = new Category("scifi"); 
+		Category c3 = new Category("thriller");
 		
-		bookRepo.save(new Book("The Hobbit", "J.R.R. Tolkien", "9780547928241", 1937, 25.0));
-		bookRepo.save(new Book("Frankenstein", "Mary Shelley", "9780141393391", 1818, 25.0));
+		catRepo.save(c1);
+		catRepo.save(c2);
+		catRepo.save(c3);
+		
+		bookRepo.save(new Book("The Hobbit", "J.R.R. Tolkien", "9780547928241", 1937, 25.0, c1));
+		bookRepo.save(new Book("Frankenstein", "Mary Shelley", "9780141393391", 1818, 25.0, c2));
 		};
 	}
 

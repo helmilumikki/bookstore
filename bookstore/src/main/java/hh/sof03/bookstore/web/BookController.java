@@ -22,7 +22,7 @@ public class BookController {
 
 	@RequestMapping(value="/index", method=RequestMethod.GET)
 	public String getWelcomePage() {
-		return "bookstore.html";
+		return "bookstore"; //bookstore.html
 	}
 	
 	@RequestMapping("/booklist")
@@ -40,6 +40,7 @@ public class BookController {
 	@RequestMapping(value = "/edit/{id}")
 	public String editBook(@PathVariable("id") Long bookId, Model model){
 	model.addAttribute("book", repository.findById(bookId));
+	model.addAttribute("categories", catRepo.findAll());
 	return "editbook";
 	} 
 

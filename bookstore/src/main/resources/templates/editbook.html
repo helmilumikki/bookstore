@@ -3,6 +3,7 @@
 <head>
     <title>Edit book</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
 </head>
 <body>
 	<h1>Edit book</h1>
@@ -14,6 +15,11 @@
 		<input type="text" th:field="*{title}" />
 		<input type="text" th:field="*{isbn}" />
 		<input type="text" th:field="*{year}" />
+		<select id="catlist" th:field="*{category}" class="form-control">
+			<option th:each="category: ${categories}" 
+			th:value="${category.categoryid}"
+			th:text="${category.name}"></option>
+			</select>
 		<input type="submit" class="btn btn-success" value="Save"></input>
 		</form>
 

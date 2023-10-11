@@ -55,5 +55,10 @@ public class BookController {
     public String save(Book book){
         repository.save(book);
         return "redirect:booklist";
-    }    
+    }
+	
+	@RequestMapping(value="/login")
+    public String login() {	
+        return "login";
+    }
 }
